@@ -1,0 +1,85 @@
+/* 4.10 Page Title
+----------------------------------------------------------*/
+
+.page-title {
+	position: relative;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	width: 100%;
+
+	h1 {
+		margin-bottom: 0;
+		font-family: $font-secondary;
+
+		@media #{$screen-xs} {
+			font-size: 28px;
+		}
+
+		> i {
+			position: relative;
+			top: 3px;
+			margin-right: 30px;
+			@include opacity(0.35);
+		}
+	}
+
+	&.page-title-1 {
+		padding-top: 90px;
+		padding-bottom: 90px;
+
+		.breadcrumb {
+			float: right;
+			margin-top: 10px;
+
+			@media #{$screen-sm} {
+				float: none;
+			}
+		}
+	}
+
+	&.page-title-2 {
+		padding-top: 150px;
+		padding-bottom: 150px;
+
+		.breadcrumb-wrapper {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+
+			.breadcrumb {
+				padding: 30px 0px;
+			}
+		}
+	}
+
+	&.page-title-3 {
+		padding-top: 90px;
+		padding-bottom: 90px;
+		
+		.breadcrumb {
+			margin-top: 15px;
+		}
+	}
+}
+
+.breadcrumb {
+	background: transparent;
+	display: inline-block;
+	font-family: $font-secondary;
+	font-size: 12px;
+	margin-bottom: 0;
+	font-weight: 600;
+	padding: 0;
+
+	> li + li:before {
+		color: inherit;
+		@include opacity(0.4);
+	}
+
+	> .active {
+		color: inherit;
+		@include opacity(0.4);
+	}
+}

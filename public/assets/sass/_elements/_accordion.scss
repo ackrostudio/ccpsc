@@ -1,0 +1,66 @@
+/* 6.1 Accordion
+----------------------------------------------------------*/
+
+.panel-group .panel {
+	@include border-radius(0);
+}
+
+.panel {
+	@include box-shadow(none);
+}
+
+.panel-heading {
+	@include border-radius(0);
+	border: none;
+	padding: 18px;
+}
+
+.panel-default {
+	.panel-heading {
+		background-color: $color-grey;
+	}
+}
+
+.panel-group {
+	.panel-2 {
+		background: transparent;
+
+		.panel-heading {
+			padding: 18px 0px 18px 45px;
+			border-bottom: 1px solid $color-line-dark;
+
+			.panel-title {
+				position: relative;
+				font-size: 16px;
+				
+				> a {
+					&:before {
+						position: absolute;
+						top: -3px;
+						left: -40px;
+						width: 24px;
+						height: 24px;
+						content:"\e622";
+						@include border-radius(50%);
+						color: $color-text-muted-dark;
+						font-family:'Themify';
+						font-size: 14px;
+					    text-align: center;
+					    padding: 5px;
+					}
+					&[aria-expanded="false"]:before {
+						content:"\e61a";
+					}
+				}	
+			}
+		}
+		.panel-body {
+			border-top: none !important;
+			padding: 18px 0px 18px 45px;
+		}
+
+		& + .panel-2 {
+			margin-top: 0;
+		}
+	}
+}

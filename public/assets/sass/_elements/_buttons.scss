@@ -1,0 +1,269 @@
+/* 6.4 Buttons
+----------------------------------------------------------*/
+
+.btn {
+	position: relative;
+	font-family: $font-secondary;
+	font-size: 12px;
+	font-weight: 600;
+	@include border-radius(40px);
+	padding: 20px 38px 22px;
+	border: none;
+	color: $color-white;
+	@include transition(all 0.2s ease-out);
+	outline: none;
+	margin-bottom: 3px;
+
+	.text-muted {
+		color: inherit;
+		@include opacity(0.5);
+	}
+
+	i {
+		font-size: 180%;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	img {
+		height: 22px;
+	}
+
+	&.btn-xs {
+		padding: 8px 18px;
+		font-size: 10px;
+	}
+	&.btn-sm {
+		padding: 14px 24px 15px;
+		font-size: 11px;
+	}
+	&.btn-lg {
+		padding: 26px 50px 28px;
+		font-size: 13px;
+	}
+
+	&.btn-default { 
+		background-color: shade($color-light,20%);
+
+		&:hover, &:focus {
+			background-color: $color-primary;
+			color: #fff;
+		}
+	}
+
+	&.btn-white { 
+		background-color: #fff; 
+		color: $color-text-dark;
+
+		&:hover, &:focus {
+			background-color: $color-primary;
+			color: #fff;
+		}
+	}
+
+	$k: 1;
+	@for $i from 1 through length($colorVersions)/2 {
+		$type: nth($colorVersions,$k);
+		$color: nth($colorVersions,$k+1);
+
+		&.btn-#{$type} {
+			background-color: $color;
+			&:hover, &:focus, &:active, &:active:focus, &:active:hover {
+				background-color: shade($color,10%);
+			}
+		}
+		$k: $k+2;
+	}
+
+	$k: 1;
+	@for $i from 1 through length($socialBrands)/2 {
+		$type: nth($socialBrands,$k);
+		$color: nth($socialBrands,$k+1);
+
+		&.btn-#{$type} {
+			background-color: $color;
+			&:hover, &:focus, &:active, &:active:focus, &:active:hover {
+				background-color: shade($color,10%);
+			}
+		}
+		$k: $k+2;
+	}
+
+	&:hover, &:focus {
+		color: $color-white;
+	}
+
+	&:focus:active, &:focus, &:active {
+		outline: none !important; 
+	}
+
+	&:active {
+		@include box-shadow(none);
+	}
+}
+
+.btn-ghost {
+	background: transparent;
+	border: 2px solid shade($color-light,30%);
+	color: inherit;
+}
+
+.dark {
+	.btn.btn-default { 
+		border-color: $color-white; 
+		&:hover, &:focus { 
+			color: $color-dark;
+			background-color: $color-white; 
+		}
+	}
+	.btn-ghost {
+		border-color: $color-white;
+
+		&:hover, &:focus { 
+			color: $color-text-dark;
+			background-color: $color-white; 
+		}
+	}
+}
+
+.btn-link {
+	border: none;
+	color: inherit;
+	
+	&:hover, &:focus {
+		color: inherit;
+		@include opacity(0.6);
+		text-decoration: none;
+	}
+}
+
+/* Submit Button */
+
+.btn-submit {
+	position: relative;
+	display: block;
+	font-family: $font-secondary;
+	text-align: center;
+	padding: 17px;
+	font-weight: 600;
+	width: 100%;
+	border: none;
+	font-size: 13px;
+	cursor: pointer;
+	color: #fff;
+	height: 52px;
+	background-color: $color-primary;
+	@include border-radius(3px);
+	@include transition(all 0.2s ease-out);
+
+	&:hover {
+		background-color: shade($color-primary,20%);
+	}
+
+	&.btn-sm {
+		padding: 13px;
+		font-size: 12px;
+		height: 44px;
+	}
+
+	&.btn-lg {
+		padding: 22px;
+		font-size: 14px;
+		height: 62px;
+	}
+
+	> * {
+		position: relative;
+		z-index: 2;
+		@include transition(all 0.2s ease-out);
+	}
+
+	> .loader-2 {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		@include translate3d(-50%,-50%,0);
+		background-color: transparent;
+		@include opacity(0);
+		visibility: hidden;
+
+		&:before {
+			background-color: $color-white;
+		}
+	}
+
+	&.loading {
+   		 -webkit-pointer-events: none;
+    	pointer-events: none;
+
+		> *:first-child {
+			@include opacity(0);
+			visibility: hidden;
+		}
+
+		> .loader-2 {
+			@include opacity(1);
+			visibility: visible;
+		}
+	}
+}
+
+@include keyframes(btnLoading) {
+	0% { @include scale(1); }
+	12% { @include scale(0.7); }
+	38% { @include scale(1.1); }
+	62% { @include scale(0.8); }
+	87% { @include scale(1); }
+}
+
+/* Play Button */
+
+.btn-play {
+	position: relative;
+	display: inline-block;
+	font-size: 52px;
+	width: 72px;
+	height: 72px;
+	font-size: 22px;
+	vertical-align: middle;
+	margin-bottom: 3px;
+	color: $color-white;
+
+	&:before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		@include border-radius(50%);
+		@include box-shadow(0px 2px 25px 0px rgba(0,0,0,0.1));
+		@include transition(all 0.3s ease-out);
+		content: ' ';
+		background: $color-white
+	}
+
+	&:after {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		@include translate3d(-50%,-50%,0);
+		@include filter(blur(0));
+		border-style: solid;
+		border-width: 4px 0 4px 8px;
+		border-color: transparent transparent transparent $color-dark;
+		content: ' ';
+	}
+
+	&:hover:before {
+		@include scale(1.2);
+	}
+
+	&.btn-lg {
+		width: 112px;
+		height: 112px;
+
+		&:after {
+			border-width: 7px 0 7px 11px;
+		}
+	}
+}

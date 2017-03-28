@@ -1,0 +1,131 @@
+extends ../layout
+
+block content
+
+  #page-title.page-title.page-title-1.bg-grey
+    .container
+      .row
+        .col-md-6
+          h1
+            i.ti-layout-cta-center
+            | #{title}
+        .col-md-6
+          ol.breadcrumb
+            li
+              a(href='#') Home Page 
+            li.active Materias
+
+  section
+    .container
+      .row
+        .col-lg-8.col-lg-push-2
+          .text-center
+            h3 Mi perfil
+
+          form.validate-form(action='/account/profile', method='POST')
+            input(type='hidden', name='_csrf', value=_csrf)
+            // Input
+            .form-group
+              label(for='email') Cédula:
+              input.form-control(type='text', name='email', id='email', disabled="", value='#{user.email}')
+            // Input
+            .form-group
+              label Usuario:
+              input.form-control(type='text', name='name', id='name', value='#{user.usuario}')
+            .form-group
+              label Semestre:
+              input.form-control(type='text', name='location', id='location', value='#{user.profile.location}')
+            .form-group
+              label Paralelo:
+              input.form-control(type='text', name='website', id='website', value='#{user.profile.website}')
+  
+            .form-group
+              button.btn.btn-submit(type='submit')  Update Profile
+
+  //section
+    .container
+      .row
+        .col-lg-8.col-lg-push-2
+          .text-center
+            h3 Cambiar clave
+
+          form.validate-form(action='/account/password', method='POST')
+            input(type='hidden', name='_csrf', value=_csrf)
+
+            .form-group
+              label(for='email') Nueva clave:
+              input.form-control(type='password', name='password', id='password', required)
+            .form-group
+              label Confirmar clave:
+              input.form-control(type='password', name='confirmPassword', id='confirmPassword', required)
+  
+            .form-group
+              button.btn.btn-danger.btn.btn-submit(type='submit')  Cambiar clave
+
+  //.row
+    .col-sm-12
+      .inbox-app-main
+        .row
+          .col-md-12
+            main#main
+              .overlay
+              #main-nano-wrapper.nano
+                .nano-content
+                  form.form-horizontal(action='/account/profile', method='POST')
+                    input(type='hidden', name='_csrf', value=_csrf)
+                    .form-group
+                      label.col-sm-3.control-label(for='email') Cedula
+                      .col-sm-7
+                        input.form-control(type='text', name='email', id='email', disabled="", value='#{user.email}')
+                    .form-group
+                      label.col-sm-3.control-label(for='name') Alumno
+                      .col-sm-7
+                        input.form-control(type='text', name='name', id='name', value='#{user.usuario}')
+                    
+                    .form-group
+                      label.col-sm-3.control-label(for='location') Location
+                      .col-sm-7
+                        input.form-control(type='text', name='location', id='location', value='#{user.profile.location}')
+                    .form-group
+                      label.col-sm-3.control-label(for='website') Website
+                      .col-sm-7
+                        input.form-control(type='text', name='website', id='website', value='#{user.profile.website}')
+
+                    .form-group
+                      .col-sm-offset-3.col-sm-4
+                        button.btn.btn-danger.btn-rounded.w-lg.waves-effect.waves-light.m-b-20.m-t-30(type='submit')
+                          i.fa.fa-pencil 
+                          |  Update Profile
+
+  //.page-header
+    h3 Change Password
+
+  //form.form-horizontal(action='/account/password', method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group
+      label.col-sm-3.control-label(for='password') New Password
+      .col-sm-7
+        input.form-control(type='password', name='password', id='password')
+    .form-group
+      label.col-sm-3.control-label(for='confirmPassword') Confirm Password
+      .col-sm-7
+        input.form-control(type='password', name='confirmPassword', id='confirmPassword')
+    .form-group
+      .col-sm-offset-3.col-sm-4
+        button.btn.btn-primary(type='submit')
+          i.fa.fa-lock
+          | Change Password
+
+  //.page-header
+    h3 Delete Account
+
+  //form.form-horizontal(action='/account/delete', method='POST')
+    .form-group
+      p.col-sm-offset-3.col-sm-4 You can delete your account, but keep in mind this action is irreversible.
+      input(type='hidden', name='_csrf', value=_csrf)
+      .col-sm-offset-3.col-sm-4
+        button.btn.btn-danger(type='submit')
+          i.fa.fa-trash
+          | Delete my account
+
+ 

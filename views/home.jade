@@ -1,0 +1,64 @@
+extends layout
+
+block content
+
+
+  #content
+    section#intro.cover.carousel.inner-controls.intro-slider.dark(data-single-item='', data-pagination='', data-navigation='', data-local-scroll='')
+      .section.section-image-edge.h-lg.bg-dark
+        .bg-image.layer.layer-zoomOutBg
+          img(src='assets/img/fnd/fnd01.jpg', alt='')
+        .content.container.v-center
+          .col-md-8.col-md-push-2.layer.layer-fadeInRight
+            h5.text-muted Evaluación al Sílabo
+            h1.text-muted Ciencias Policiales
+              em  2016/2017
+            a.btn.btn-info.btn-sm(href='/login') 
+              | Ingresar
+              i.i-after.ti-angle-right
+        .image.bottom.col-md-5.col-md-push-1.layer.layer-fadeInUp
+      .section.h-lg.bg-dark
+        .bg-image.layer.layer-zoomOutBg
+          img(src='assets/img/fnd/fnd02.jpg', alt='')
+        .content.container.text-center.v-center
+          .row.layer.layer-fadeInUp
+            .col-md-8.col-md-push-2
+              h5.text-muted Graduados
+              h1
+                | Let's check our 
+                em full offer
+                | !
+              a.btn.btn-primary(href='#graduados') Read more
+
+    section#services.cover.protrude.pull-up-40
+      .container.text-center
+        .row
+          .col-md-12
+            .feature.feature-1.boxed.bg-white.animated(data-animation='fadeInUp')
+              .row.workflow-steps
+                span.workflow-progress.animated
+                .col-md-4
+                  .step.pl-20-lg.pr-20-lg.animated(data-animation-delay='700')
+                    span.icon.icon-circle.icon-white
+                      i.pe-7s-user.text-default
+                    h5 1. Usuario
+                    p.text-muted
+                      | Ingresa a tu cuenta, recuerda que tu username es tu C.I.
+                .col-md-4
+                  .step.pl-20-lg.pr-20-lg.animated(data-animation-delay='2000')
+                    span.icon.icon-circle.icon-white
+                      i.pe-7s-note.text-default
+                    h5 2. Registro materias
+                    p.text-muted Selecciona la materia a la cual realizaras la evaluación
+                .col-md-4
+                  .step.pl-20-lg.pr-20-lg.animated(data-animation-delay='3300')
+                    span.icon.icon-circle.icon-white
+                      i.pe-7s-check.text-default
+                    h5 3. Evalua
+                    p.text-muted Con seriedad, libre de presión, con objetividad. Recuerda que los resultados son pro-mejoras
+
+
+   
+               
+
+      

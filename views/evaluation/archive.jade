@@ -1,0 +1,65 @@
+extends ../layout
+
+block content
+
+  #page-title.page-title.page-title-1.bg-grey
+    .container
+      .row
+        .col-md-6
+          h1
+            i.ti-layout-cta-center
+            | #{title}
+        .col-md-6
+          ol.breadcrumb
+            li
+              a(href='#') Home Page 
+            li.active Materias
+  #content
+    section
+      .container
+        .row
+          .col-md-10.col-md-push-1  
+            .woocommerce
+              table.shop_table.shop_table_responsive.cart.tablepress(cellspacing='0')
+                thead
+                  tr
+                    th.product-remove
+                      i.ti-layout-width-full
+                    th.product-4 Código
+                    th.product-name Materias
+                    th.product-subtotal Estado
+                tbody
+                  each item in myArchive
+                    tr.cart_item
+                      td.product-remove
+                        if item.status
+                          i.ti-check-box.text-danger
+                      td.product-4  #{item.codigo}
+                      td.product-name(data-title='Product')
+                        if !item.status
+                          a(href='/#{item._id}') #{item.materia}
+                        else
+                          a(href='#', data-toggle='modal', data-target='#con-close-modal') #{item.materia}
+                      td.product-subtotal(data-title='Product')
+                        if item.status == 'True'
+                          | Evaluado
+
+                #con-close-modal.modal.fade(role='dialog')
+                  .modal-dialog(role='document')
+                    .modal-content
+                      .modal-header
+                        button.close(type='button', data-dismiss='modal', aria-label='Close')
+                          i.ti-close
+                        h4#myModalLabel.modal-title
+                      .modal-body
+                        .modal-body.text-center
+                          span.icon.icon-xl.icon-success.animated(data-animation='fadeIn')
+                            i.pe-7s-check
+                          h1.mb-10 Materia Evaluada!
+                          p.lead.mb-40 Por favor, selecciona otra  :)
+                       .modal-footer
+                        button.btn.btn-info(type='button', data-dismiss='modal') Cerrar
+
+script(src='main.js')
+
+                

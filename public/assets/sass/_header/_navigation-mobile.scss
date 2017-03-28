@@ -1,0 +1,277 @@
+/* 3.2 Navigation Primary - Mobile
+----------------------------------------------------------*/
+
+/* Nav Toggle */
+
+.nav-toggle {
+	position: relative;
+    width: 30px;
+
+    &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        min-height: 20px;
+        min-width: 20px;
+        content: ' ';
+    }
+
+    > span {
+        position: absolute;
+        top: 50%;
+ 	    left: 5px;
+        margin-top: -2px;
+        @include transition(all 0.25s ease-out);
+        display: inline-block;
+
+        &:before, &:after {
+            height: 2px;
+            width: 20px;
+            display: inline-block;
+            @include border-radius(2px);
+            content: ' ';
+            background-color: $color-text-dark;
+            @include transition(all 0.25s ease-out);
+        }
+
+        &:before,&:after {
+            position: absolute;
+            left: 0;
+        }
+
+        &:before {
+            top: -7px;
+        }
+        &:after {
+            bottom: -7px;
+        }
+
+        > span {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            &:before, &:after {
+                position: absolute;
+                top: -1px;
+                left: 0;
+                height: 2px;
+                width: 20px;
+                display: inline-block;
+                @include border-radius(2px);
+                content: ' ';
+                background-color: $color-text-dark;
+                @include transition(all 0.25s ease-out);
+            }
+        }
+    }
+
+    &.active {
+        > span {
+            background: transparent;
+
+            &:before {
+                @include translateX(-10px);
+                @include opacity(0);
+            }
+            &:after {
+                @include translateX(10px);
+                @include opacity(0);
+            }
+
+            > span {
+                &:before {
+                    @include transform(rotate(-45deg));
+                }
+                &:after {
+                    @include transform(rotate(45deg));
+                }
+            }
+        }
+    }
+}
+
+.dark, .transparent {
+    .nav-toggle {
+        > span {
+            &:before, &:after {
+                background-color: $color-white;
+            }
+            > span {
+                &:before, &:after {
+                    background-color: $color-white;
+                }
+            }
+        }
+    }
+
+    &.out {
+        .nav-toggle {
+            > span {
+                &:before, &:after {
+                    background-color: $color-text-dark;
+                }
+                > span {
+                    &:before, &:after {
+                        background-color: $color-text-dark;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Nav Mobile */
+
+@media #{$screen-md} {
+	.menu {
+		position: static;
+	}
+	.nav-primary {
+		position: absolute;
+		top: $nav-bar-height;
+		left: 0;
+		right: 0;
+		width: 100%;
+		background-color: $color-white;
+		padding-left: 15px;
+		padding-right: 15px;
+		line-height: 1;
+		list-style: none;
+		font-size: 12px;
+		font-weight: 600;
+		border-top: 1px solid $color-line-dark;
+		overflow: auto;
+		text-align: left;
+		display: none;
+		@include box-shadow(0px 2px 3px 0px rgba(0,0,0,0.1));
+
+		li {
+			a {
+				position: relative;
+				height: auto !important;
+
+				&:hover, &:focus {
+					background: transparent;
+				}
+
+				> i {
+					margin-right: 8px;
+				}
+
+				> .label {
+					margin-left: 5px;
+				}
+			}
+			> a {
+				display: block !important;
+			}
+			&.has-dropdown {
+				> a:after {
+					position: absolute;
+					top: 19px;
+					right: 13px;
+					font-family:themify;
+					font-size: 80%;
+					@include opacity(0.5);
+					@include transition(all 0.2s ease-out);
+					content:"\e62a";
+				}
+			}
+		}
+
+		> li {
+			display: block;
+			float: none;
+			border-bottom: 1px solid $color-line-dark;
+
+			&:last-child {
+				border-bottom: none;
+			}
+
+			> a {
+				padding: 17px 0;
+
+				&.has-dropdown,
+				&.has-megamenu {
+					> a:after {
+						top: 11px;
+						@include opacity(1);					}
+				}
+			}
+
+			ul {
+				list-style: none;
+				font-size: 12px;
+				font-weight: 600;
+				margin: 0 0 20px 0;
+				padding: 0;
+				display: none;
+
+				> li {
+					a {
+						padding: 10px 0;
+						font-weight: 400;
+						@include opacity(0.6);
+
+						&:hover, &:focus {
+							@include opacity(1);	
+						}
+					}
+				}
+
+				&.mega-menu {
+					> li {
+						width: 23%;
+						display: inline-block;
+						vertical-align: top;
+
+						@media #{$screen-xs} {
+							width: 48%;
+						}
+
+						@media #{$screen-xxs} {
+							width: 100%;
+							display: block;
+						}
+
+						> ul {
+							display: block;
+
+							.title {
+								font-size: 11px;
+								margin: 15px 0 8px;
+							}
+						}
+					}
+				}
+			}
+
+			&.lang {
+				> a {
+					@include opacity(0.6);
+					font-size: 11px;
+				}
+			}
+		}
+	}
+	#nav-bar .module.language {
+		display: none;
+	}
+	#nav-bar .module.menu{
+		padding: 0;
+	}
+	.dark .nav-primary {
+		background-color: $color-dark;
+		color: $color-white;
+	}
+	.transparent:not(.out) {
+		.nav-primary {
+			background-color: $color-dark;
+			color: $color-white;
+		}
+	}
+}

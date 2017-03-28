@@ -1,0 +1,154 @@
+/* 6.5 Carousel
+----------------------------------------------------------*/
+
+.carousel {
+	position: relative;
+
+	.owl-item {
+		overflow: hidden;
+	}
+
+	&:hover {
+		.owl-buttons {
+			@include opacity(1);
+			@include scaleX(1);
+			visibility: visible;
+		}
+	}
+
+}
+
+.owl-pagination {
+	margin-top: 20px;
+
+	.owl-page {
+		display: inline-block;
+		margin: 0px 6px;
+
+		span {
+			display: inline-block;
+			width: 7px;
+			height: 7px;
+			@include border-radius(50%);
+			@include transition(0.2s all ease-out);
+			background-color: $color-black;
+			@include opacity(0.2);
+		}
+
+		&.active {
+			span { 
+				@include opacity(1); 
+				background-color: $color-primary;
+			}
+		}
+	}
+}
+
+.dark .owl-pagination {
+	.owl-page {
+		span {
+			background-color: rgba($color-white,0.4);
+		}
+	}
+}
+
+.owl-buttons {
+	position: absolute;
+	top: 50%;
+	margin-top: -20px;
+	width: 100%;
+	@include opacity(0);
+	@include scaleX(0.9);
+	visibility: hidden;
+	@include transition(0.2s all ease-out);
+	> div {
+		position: absolute;
+		width: 60px;
+		height: 36px;
+		text-align: center;
+
+		& {
+			@include opacity(0.5);
+			@include transition(0.2s all ease-out);
+
+			&:hover, &:focus {
+				@include opacity(1);
+			}
+		}
+		&:after, &:before {
+			font-size: 26px;
+			font-family:themify;
+		}
+	}
+	.owl-prev {
+		right: 100%;
+		&:before {
+			content:"\e64a";
+		}
+	}
+	.owl-next {
+		left: 100%;
+		&:before {
+			content:"\e649";
+		}
+	}
+}
+
+.inner-controls {
+	> .owl-controls > .owl-pagination {
+		text-align: right;
+		position: absolute;
+		bottom: 45px;
+		right: 45px;
+
+		.owl-page span {
+			background-color: $color-white;
+		}
+	}
+	.owl-buttons {
+		> * {
+			&:after, &:before {
+				position: relative;
+			}
+		}
+		.owl-prev:before {
+			left: 60px;
+		}
+		.owl-next:before {
+			right: 60px;
+		}
+	}
+}
+
+.dark .inner-controls .owl-buttons {
+	> * {
+		&:after, &:before {
+			color: $color-white;
+		}
+	}
+}
+
+.intro-slider {
+	overflow: hidden;
+
+	.owl-item {
+		
+		.layer {
+			@include transition(all 1.5s ease-out 0.7s);
+		}
+		.layer-fadeIn { @include opacity(0); }
+		.layer-fadeInRight { @include opacity(0); @include translateX(-30%); }
+		.layer-fadeInLeft { @include opacity(0); @include translateX(30%); }
+		.layer-fadeInUp { @include opacity(0); @include translateY(50%); }
+		.layer-fadeInDown { @include opacity(0); @include translateY(-50%); }
+		.layer-zoomOut { @include scale(1.2); @include transition(all 3s ease-out); }
+		.layer-zoomOutBg { @include scale(1.2); @include transition(all 3s ease-out); }
+
+		&.active {
+			.layer-fadeIn { @include opacity(1); }
+			.layer-zoomOut, .layer-zoomOutBg { @include scale(1); }
+			.layer-fadeInRight, .layer-fadeInLeft { @include opacity(1); @include translateX(0); }
+			.layer-fadeInUp, .layer-fadeInDown { @include opacity(1); @include translateY(0); }
+		}
+	}
+}

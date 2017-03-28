@@ -1,0 +1,48 @@
+extends ../layout
+
+block content
+
+  #page-title.page-title.page-title-1.bg-grey
+    .container
+      .row
+        .col-md-6
+          h1
+            i.ti-check-box
+            | #{title}
+        .col-md-6
+          ol.breadcrumb
+            li 
+              a(href='/student') Busqueda
+            li.active Materias
+
+    section
+      .container
+        .row
+          .col-md-10.col-md-push-1  
+            .woocommerce
+              table.shop_table.shop_table_responsive.cart(cellspacing='0')
+                thead
+                  tr
+                    th.product-remove Usuario
+                    th.product-price Id 
+                    th.product-name Materia
+                    th.product-subtotal Total
+                    th.product-price 
+                tbody
+                  each item in mySearch
+                    tr.cart_item
+                      td.product-remove #{item.email}
+                        
+                      td.product-price  #{item.codigo}
+                      td.product-name(data-title='Product')
+                        a(href='/#{item._id}') #{item.materia}
+                      td.product-price(data-title='Product') #{item.status}
+                      td.product-price
+                        .pull-right.hidden-phone
+
+                          button.btn.btn-primary.btn-xs
+                            i.fa.fa-pencil
+                          button.btn.btn-danger.btn-xs
+                            i.fa.fa-trash-o
+
+   

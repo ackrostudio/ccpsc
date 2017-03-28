@@ -1,0 +1,41 @@
+extends ../layout
+
+block content
+
+  #page-title.page-title.page-title-1.bg-grey
+    .container
+      .row
+        .col-md-6
+          h1
+            i.ti-server
+            | #{title}
+        .col-md-6
+          ol.breadcrumb
+            li
+              a(href='/account') Home
+            li.active dashboard
+
+
+  .container-fluid#stats.text-center
+
+        .row.row-color.dark
+          .col-sm-4
+            .counter.counter-2.animated(data-animation='fadeIn')
+              span.icon.icon-default
+                i.pe-7s-graph
+              span.number #{studentEvalua} - #{student}
+              h4.text-muted Estudiantes
+          .col-sm-4
+            .counter.counter-2.animated(data-animation='fadeIn', data-animation-delay='200')
+              span.icon.icon-default
+                i.pe-7s-graph
+              span.number #{teacherEvalua} - #{allArchive.length-student} 
+              h4.text-muted Docentes
+          .col-sm-4
+            .counter.counter-2
+              span.icon.icon-default
+                i.pe-7s-graph1
+              span.number 0.5%
+              h4.text-muted Total
+
+    

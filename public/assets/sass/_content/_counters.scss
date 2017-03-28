@@ -1,0 +1,59 @@
+/* 4.3 Counters
+----------------------------------------------------------*/
+
+.counter {
+	&.counter-1 {
+		position: relative;
+		text-align: center;
+		height: 460px;
+
+		.counter-content {
+			position: relative;
+			top: 50%;
+			z-index: 2;
+			@include translate3d(0,-50%,0);
+			@include transition(all 0.3s ease-out)
+		}
+
+		.number {
+			font-size: 80px;
+			line-height: 1;
+			font-weight: 700;
+			display: block;
+			font-family: $font-secondary;
+
+			@media #{$screen-sm} {
+				font-size: 60px;
+			}
+
+			@media #{$screen-xs} {
+				font-size: 42px;
+			}
+		}
+	}
+	&.counter-2 {
+		padding: 60px 20px;
+
+		.number {
+			font-size: 52px;
+			line-height: 1;
+			font-weight: 700;
+			display: block;
+			font-family: $font-secondary;
+		}
+	}
+	&.counter-3 {
+		margin-bottom: 35px;
+
+		.number {
+			font-size: 40px;
+			font-family: $font-secondary;
+			font-weight: 600;
+			line-height: 1;
+
+			@media #{$screen-xs} {
+				font-size: 28px;
+			}
+		}
+	}
+}

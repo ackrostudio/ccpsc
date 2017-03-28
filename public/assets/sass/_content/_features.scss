@@ -1,0 +1,107 @@
+/* 4.5 Features
+----------------------------------------------------------*/
+.feature {
+	margin-bottom: 40px;
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
+
+	&.feature-1 {
+		.icon {
+			margin-bottom: 25px;
+		}
+	}
+
+	&.feature-2 {
+		.feature-content {
+			padding-left: 75px;
+			padding-top: 18px;
+
+			> *:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		.icon {
+			float: left;
+
+			&.icon-sm + .feature-content { padding-left: 55px; }
+			&.icon-lg + .feature-content { padding-left: 120px; }
+			&.icon-xl + .feature-content { padding-left: 190px; padding-top: 20px; }
+
+			&.icon-circle {
+				& + .feature-content { padding-left: 85px; }
+				&.icon-sm + .feature-content { padding-left: 64px; }
+				&.icon-lg + .feature-content { padding-left: 140px; }
+				&.icon-xl + .feature-content { padding-left: 190px; }
+			}
+
+		}
+
+		&.feature-sm {
+			min-height: 0;
+		}
+	}
+
+	&.feature-3 {
+
+		> img {
+			width: 100%;
+		}
+		.feature-content {
+			padding: 30px;
+		}
+	}
+
+	&.feature-4 {
+		padding: 30px;
+	}
+
+	&.bordered {
+		padding: 30px;
+		border: 1px solid $color-line-dark;
+		@include border-radius(3px);
+	}
+
+	&.boxed {
+		padding: 30px;
+		background-color: $color-grey;
+		@include border-radius(3px);
+
+		&.bg-white {
+			background-color: $color-white;
+		}
+
+		&.bg-dark {
+			background-color: $color-dark;
+		}
+
+		&.bg-light {
+			background-color: $color-light;
+		}
+
+		&.feature-lg {
+			padding: 70px 50px;
+		}
+	}
+
+}
+
+.dark .feature {
+	&.bordered {
+		border-color: $color-line-light;
+	}
+	&.boxed {
+		background-color: $color-dark-transparent;
+	}
+}
+
+.bg-grey .feature {
+	&.bordered {
+		border-color: $color-white;
+	}
+	&.boxed {
+		background-color: $color-white;
+	}
+}

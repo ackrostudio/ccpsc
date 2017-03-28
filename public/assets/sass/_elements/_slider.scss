@@ -1,0 +1,26 @@
+/* 6.21 Slider
+----------------------------------------------------------*/
+
+.ui-slider {
+	background-color: shade($color-grey,10%);
+	height: 6px;
+	@include border-radius(3px);
+
+	.ui-slider-range {
+		background-color: $color-primary;
+		@include border-radius(3px);
+	}
+
+	.ui-slider-handle {
+		top: -6px;
+		width: 18px;
+		height: 18px;
+		@include border-radius(50%);
+		display: inline-block;
+		border: 3px solid #fff;
+		@include box-shadow(1px 1px 10px 0 rgba(#000,0.15));
+		background-color: shade($color-grey,20%);
+		cursor: pointer;
+	}
+}
+

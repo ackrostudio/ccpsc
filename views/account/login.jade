@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+
+  #content
+    section.fullheight
+      .bg-image
+        img(src='assets/img/fnd/fnd02.jpg', alt='')
+      .container.v-center.text-center
+        .row
+          .col-md-6.col-md-push-3
+            .animated(data-animation='fadeInDown')
+              h3 Iniciar sesión!
+              form.form-horizontal.m-t-20(method='POST')
+                input(type='hidden', name='_csrf', value=_csrf)
+                .form-group
+                  .col-xs-12
+                    input.form-control(type='text', name='email', id='email', placeholder='Usuario', autofocus, required, value='0104630280')
+                .form-group
+                  .col-xs-12
+                    input.form-control(type='password', name='password', id='password', placeholder='Contraseña', required, value='2sm1617')
+                .form-group.text-center.m-t-30
+                  .col-xs-12
+                  button.btn-submit.btn-lg(type='submit') Ingresar
+
+
+
+
+    

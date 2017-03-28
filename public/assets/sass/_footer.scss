@@ -1,0 +1,35 @@
+/* ---------------------------------------------------------------------------- */
+/* --- 5. FOOTER
+/* ----------------------------------------------------------------------------- */
+
+#footer {
+	position: relative;
+	padding-top: 50px;
+    z-index: 2;
+
+    h5, .h5 { 
+        font-weight: 500;
+    }
+
+    .footer-bottom {
+        background-color: rgba(#000,0.1);
+        padding: 50px 0;
+
+        &:first-child {
+            margin-top: -50px;
+        }
+    }
+
+    &.footer-lg {
+        padding-top: 90px;
+
+        .footer-bottom {
+            font-size: 13px;
+            margin-top: 30px;
+        }
+    }
+}
+
+body.body-boxed #footer {
+    @include border-radius(0 0 5px 5px);
+}

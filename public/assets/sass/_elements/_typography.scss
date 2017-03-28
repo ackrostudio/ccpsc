@@ -1,0 +1,300 @@
+/* 6.23 Typography 
+----------------------------------------------------------*/
+
+/* Fonts */
+
+.font-primary { font-family: $font-primary; }
+.font-secondary { font-family: $font-secondary; }
+
+/* Headings */
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+	margin-top: 0;
+	display: block;
+	font-family: $font-secondary;
+	font-weight: 600;
+	line-height: 1.2;
+} 
+
+h1, .h1 { 
+	font-size: 42px;
+	margin-bottom: 32px;
+
+	@media #{$screen-xs} {
+		font-size: 34px; 
+	}
+
+	&.text-lg { 
+		font-size: 56px; 
+
+		@media #{$screen-sm} {
+			font-size: 46px; 
+		}
+
+		@media #{$screen-xs} {
+			font-size: 38px; 
+		}
+	}
+
+	&.text-xl { 
+		font-size: 72px; 
+
+		@media #{$screen-sm} {
+			font-size: 52px; 
+		}
+
+		@media #{$screen-xs} {
+			font-size: 42px; 
+		}
+	}
+}
+
+h2, .h2 { 
+	font-size: 36px;
+	margin-bottom: 28px;
+
+	@media #{$screen-xs} {
+		font-size: 28px; 
+	}
+}
+
+h3, .h3 { 
+	font-size: 26px;
+	margin-bottom: 24px;
+
+	@media #{$screen-xs} {
+		font-size: 24px; 
+	}
+}
+
+h4, .h4 { 
+	font-size: 20px;
+	margin-bottom: 22px;
+}
+
+h5, .h5 { 
+	font-size: 16px;
+	margin-bottom: 18px;
+}
+
+h6, h6 {
+	font-size: 13px;
+	margin-bottom: 14px;
+}
+
+em {
+	font-family: $font-primary;
+	font-weight: 400;
+}
+
+/* Paragraph */
+
+p {
+	font-weight: 400;
+	margin-bottom: 25px;
+
+	&.lead {
+		font-size: 18px;
+		margin-bottom: 25px;
+		line-height: 1.5;
+
+		@media #{$screen-sm} {
+			font-size: 16px;
+		}
+	}
+}
+
+/* Address */
+
+address {
+	margin-bottom: 30px;
+}
+
+/* Blockquote */
+
+blockquote {
+	position: relative;
+	background-color: $color-grey;
+	padding: 40px;
+	border: none;
+	margin-bottom: 30px;
+
+	> * {
+		position: relative;
+		z-index: 1;
+	}
+
+	p {
+		font-size: 18px;
+		font-weight: 300;
+		line-height: 1.7;
+		margin-bottom: 15px;
+	}
+
+	footer {
+		color: $color-text-dark;
+
+		&:before {
+			display: none;
+		}
+
+		img {
+			width: 56px;
+			height: 56px;
+			@include border-radius(50%);
+			vertical-align: middle;
+			margin-right: 15px;
+		}
+
+		.content {
+			display: inline-block;
+			vertical-align: middle;
+
+			.name {
+				font-size: 14px;
+				font-family: $font-secondary;
+				font-weight: 500;
+			}
+
+			.caption {
+				@include opacity(0.5);
+				font-family: $font-secondary;
+				font-size: 13px;
+			}
+		}
+	}
+}
+
+.bg-light blockquote {
+	background-color: $color-white;
+}
+
+.dark blockquote {
+	background-color: rgba($color-dark,0.2);
+
+	footer {
+		color: $color-white;
+	}
+}
+
+/* Sizes */
+
+.text-xs { font-size: 11px; }
+.text-sm { font-size: 12px; }
+.text-md { font-size: 14px; }
+.text-lg { font-size: 16px; }
+
+/* Colors */
+
+$k: 1;
+@for $i from 1 through length($colorVersions)/2 {
+	$type: nth($colorVersions,$k);
+	$color: nth($colorVersions,$k+1);
+
+	.text-#{$type} {
+		color: $color;
+	}
+	$k: $k+2;
+}
+
+.text-muted { color: $color-text-muted-dark; }
+.text-muted-2x { color: $color-text-muted-dark-2; }
+.text-muted-3x { color: $color-text-muted-dark-3; }
+.text-dark { color: $color-text-dark; }
+
+.dark .text-muted { color: $color-text-muted-light;  }
+.dark .text-muted-2x { color: $color-text-muted-light-2;  }
+.dark .text-muted-3x { color: $color-text-muted-light-3;  }
+
+a.text-primary {
+	&:hover, &:focus {
+		color: darken($color-primary,10%);
+	}
+}
+
+/* Description */
+
+dl {
+	font-family: $font-secondary;
+	font-weight: 500;
+	margin-bottom: 30px;
+	
+	dt { 
+		font-size: 13px;
+		@include opacity(0.5);
+	}
+	dd {
+		font-size: 16px;
+		margin-bottom: 20px;
+	}
+}
+
+/* Links */
+
+.link-underline {
+	position: relative;
+
+	&:after {
+		position: absolute;
+		bottom: -2%;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		content: ' ';
+		background-color: $color-dark;
+		@include transition(all 0.2s ease-out);
+
+	}
+
+	&:hover, &:focus {
+		&:after {
+			@include scaleX(1.1);
+		}
+	}
+}
+
+.dark .link-underline:after { background-color: $color-white; }
+.link-underline.text-primary:after { background-color: $color-primary; }
+
+/* Helper Classes */
+
+.text-spacing {
+	letter-spacing: 0.2em;	
+}
+
+.text-bg {
+	display: inline-block;
+	padding: 0.2em 0.3em 0.25em;
+
+	&.rounded {
+		@include border-radius(3px);
+	}
+}
+
+/* Lists */
+
+ol, ul {
+	margin-bottom: 30px;
+}
+
+.list-lined {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	> li {
+		margin-bottom: 8px;
+		padding-bottom: 8px;
+		border-bottom: 1px dashed $color-line-dark;
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+}
+
+.dark .list-lined > li {
+	border-color: $color-line-light;
+}
+
+

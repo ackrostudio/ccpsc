@@ -1,0 +1,19 @@
+
+if messages.errors
+  .alert.alert-danger(role='alert')
+    button.close(type='button', data-dismiss='alert', aria-label='Close')
+      i.ti-close
+    for error in messages.errors
+      div= error.msg
+if messages.info
+  .alert.alert-info.fade.in
+    button.close(type='button', data-dismiss='alert')
+      i.ti-close
+    for info in messages.info
+      div= info.msg
+if messages.success
+  .alert.alert-success.fade.in
+    button.close(type='button', data-dismiss='alert')
+      i.ti-close
+    for success in messages.success
+      div= success.msg

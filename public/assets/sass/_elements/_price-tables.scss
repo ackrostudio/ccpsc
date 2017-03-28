@@ -1,0 +1,82 @@
+/* 6.16 Price Tables
+----------------------------------------------------------*/
+
+.price-table-1 {
+	margin-bottom: 20px;
+	padding: 30px;
+	@include box-shadow(1px 1px 35px rgba(#000,0.08));
+	@include border-radius(4px);
+	text-align: center;
+	background-color: $color-white;
+
+	.head {
+		padding-top: 20px;
+		margin-bottom: 45px;
+
+		h3 {
+			margin-bottom: 0;
+		}
+	}
+
+	.price {
+		font-size: 72px;
+		line-height: 1;
+		font-family: $font-secondary;
+		font-weight: 600;
+		color: $color-secondary;
+		margin-bottom: 35px;
+
+		.currency {
+			font-size: 40px;
+			vertical-align: top;
+		}
+
+		.type {
+			font-size: 18px;
+			vertical-align: baseline;
+		}
+	}
+
+	.features {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		font-family: $font-secondary;
+		font-size: 13px;
+		font-weight: 500;
+		min-height: 170px;
+
+		> li {
+			margin-bottom: 8px;
+		}
+	}
+
+	&.featured {
+		position: relative;
+		border: 3px solid $color-primary;
+		margin-top: -10px;
+		z-index: 2;
+
+		.price {
+			color: $color-primary;
+		}
+
+		.features {
+			min-height: 190px;
+		}
+	}
+}
+
+.row > *:first-child > .price-table-1 {
+	@include border-top-right-radius(0);
+	@include border-bottom-right-radius(0);
+}
+
+.row > *:last-child  > .price-table-1 {
+	@include border-top-left-radius(0);
+	@include border-bottom-left-radius(0);
+}
+
+.dark .price-table-1 {
+	background-color: $color-dark;
+}

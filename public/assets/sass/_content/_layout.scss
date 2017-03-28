@@ -1,0 +1,111 @@
+/* 4.6 Layout
+----------------------------------------------------------*/
+
+/* Row Double */
+
+.row-double { 
+	position: relative;
+	margin-left: 0;
+	margin-right: 0;
+
+	.image { 
+		position: absolute; 
+		height: 100%; 
+		text-align: center;
+
+		.btn-play {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			@include translate3d(-50%,-50%,0);
+		}
+	}
+	.content { 
+		position: relative;
+		padding: 6%;
+	}
+	&.left .image { left: 0; }
+	&.left .content { right: 0; }
+	&.right .image { right: 0; }
+	&.right .content { left: 0; }
+}
+
+@media #{$screen-sm} {
+
+	.row-double { 
+		.image { 
+			position: relative; 
+			height: 60vh;
+			max-height: 400px;
+		}
+		.content { 
+			position: relative;
+			left: 0;
+			padding: 6%;
+		}
+	}
+}
+
+/* Row Color */
+
+.row-color { 
+	> *[class^='col'],  > *[class*=' col'] {
+		padding-left: 0; 
+		padding-right: 0;
+
+		&:nth-child(6n+1) { background-color: tint($color-primary,10%); }
+		&:nth-child(6n+2) { background-color: $color-primary; }
+		&:nth-child(6n+3) { background-color: shade($color-primary,10%); }
+		&:nth-child(6n+4) { background-color: shade($color-primary,20%); }
+		&:nth-child(6n+5) { background-color: shade($color-primary,30%); }
+		&:nth-child(6n+6) { background-color: shade($color-primary,40%); }
+	}
+}
+
+/* Row Left - Right */
+
+.row-lr {
+
+	@media #{$screen-sm} {
+		text-align: center;
+	}
+	
+	.right {
+		text-align: right;
+
+		@media #{$screen-sm} {
+			text-align: center;
+		}
+	}
+}
+
+@media #{$screen-sm} {
+
+	.row-double { 
+		.image { 
+			position: relative; 
+			height: 60vh;
+			max-height: 400px;
+		}
+		.content { 
+			position: relative;
+			left: 0;
+			padding: 6%;
+		}
+	}
+
+}
+
+/* Spread Items */
+
+.spread-items {
+	padding: 0;
+	margin: 0;
+	
+	> * {
+		display: inline-block;
+		margin: 0 20px;
+	}
+}
+
+

@@ -1,0 +1,56 @@
+extends ../layout
+
+block content
+
+  #page-title.page-title.page-title-1.bg-grey
+    .container
+      .row
+        .col-md-6
+          h1
+            i.ti-search
+            | #{title}
+        .col-md-6
+          ol.breadcrumb
+            li
+              a(href='/account') Home 
+            li.active Materias
+
+  section
+    .container.text-center
+      //form#sign-up-form.sign-up-form.validate-form(action='/registry', method='POST')
+      form.search-form(role='search', action='/registry', method='post')
+        div(style='position: absolute; left: -5000px;', aria-hidden='true')
+        input(type='hidden', name='_csrf', value=_csrf)
+        .form-one-row.row.no-padding
+          .col-md-6.col-md-push-1.form-group.form-group-lg
+            input.form-control.input-lg(type='text', name='email', placeholder='Número cédula', required='')
+          .col-md-4.col-md-push-1.form-group.form-submit
+            button.btn-submit.btn-lg(type='submit')
+              span Buscar
+              span.loader-2
+
+  #content
+    // Section
+    section
+      .container
+        .row
+          .col-md-10.col-md-push-1  
+            .woocommerce
+              table.shop_table.shop_table_responsive.cart(cellspacing='0')
+                thead
+                  tr
+                    th.product-remove 
+                    th.product-price Id 
+                    th.product-name Materia
+                    th.product-subtotal Total
+                tbody
+                //  each item in mySearch
+                //    tr.cart_item
+                //     td.product-remove
+                //        i.ti-check.text-danger
+                //      td.product-price  #{item.codigo}
+                //      td.product-name(data-title='Product')
+                //        a(href='/#{item._id}') #{item.materia}
+                //      td.product-subtotal(data-title='Product') #{item.status}
+
+   

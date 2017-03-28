@@ -1,0 +1,201 @@
+extends ../layout
+
+block content
+
+  #page-title.page-title.page-title-1.bg-grey
+    .container
+      .row
+        .col-md-6
+          h1
+            i.ti-layout-list-thumb
+            | #{title}
+        .col-md-6
+          ol.breadcrumb
+            li
+              a(href='#') #{mySubject.materia}
+            li.active
+              a(href='/account') Regresar
+  #content
+    section
+      .container
+        .row
+          .col-lg-8.col-lg-push-2
+
+            form#calculatorExample2.form-horizontal(action='/#{mySubject._id}', method='POST')
+              input(type='hidden', name='_csrf', value=_csrf)
+              .row
+              .col-sm-12
+
+                .form-group 
+                  label 01. Presento el sílabo al inicio del semestre?
+                  .radio.radio-inline
+                    input#item01(type='radio', name='item01', value='si', required='')
+                    label(for='item01') SI
+                  .radio.radio-inline
+                    input#item02(type='radio', name='item01', value='no', required='')
+                    label(for='item02') NO
+
+                .form-group
+                  label 02. Analizó el sílabo conjuntamente con los estudiantes?
+                  .radio.radio-inline
+                    input#item03(type='radio', name='item02', value='todo', required='')
+                    label(for='item03') TODO
+                  .radio.radio-inline
+                    input#item04(type='radio', name='item02', value='parcialmente', required='')
+                    label(for='item04') PARCIALMENTE
+                  .radio.radio-inline
+                    input#item05(type='radio', name='item02', value='nada', required='')
+                    label(for='item05') NADA
+
+                .form-group
+                  label 03. La presento del sílabo es adecuada y ordenada?
+                  .radio.radio-inline
+                    input#item06(type='radio', name='item03', value='si', required='')
+                    label(for='item06') SI
+                  .radio.radio-inline
+                    input#item07(type='radio', name='item03', value='no', required='')
+                    label(for='item07') NO
+
+                .form-group
+                  label 04. Los datos informativos son correctos y completos?
+                  .radio.radio-inline
+                    input#item08(type='radio', name='item04', value='si', required='')
+                    label(for='item08') SI
+                  .radio.radio-inline
+                    input#item09(type='radio', name='item04', value='no', required='')
+                    label(for='item09') NO
+
+                .form-group
+                  label 05. En que porcentaje los resultados de aprendizaje propuestos en el sílabo fueron alcanzados al final del semestre?
+                  .radio.radio-inline
+                    input#item10(type='radio', name='item05', value='100', required='')
+                    label(for='item10') 100%
+                  .radio.radio-inline
+                    input#item11(type='radio', name='item05', value='75-90', required='')
+                    label(for='item11') 75% - 90%
+                  .radio.radio-inline
+                    input#item12(type='radio', name='item05', value='50-74', required='')
+                    label(for='item12') 50% - 74%
+                  .radio.radio-inline
+                    input#item13(type='radio', name='item05', value='25-49', required='')
+                    label(for='item13') 25% - 49%
+                  .radio.radio-inline
+                    input#item14(type='radio', name='item05', value='0-24', required='')
+                    label(for='item14') 0% - 24%
+
+                .form-group
+                  label 06. El trabajo realizado en el aula permite el umplimiento de los resultados de aprendizaje que consta en el sílabo?
+                  .radio.radio-inline
+                    input#item15(type='radio', name='item06', value='totalmente', required='')
+                    label(for='item15') TOTALMENTE
+                  .radio.radio-inline
+                    input#item16(type='radio', name='item06', value='parcialmente', required='')
+                    label(for='item16') PARCIALMENTE
+                  .radio.radio-inline
+                    input#item17(type='radio', name='item06', value='nada', required='')
+                    label(for='item17') NADA
+
+                .form-group
+                  label 07. Se respetaron los puntajes y porcentajes de la evaluación?
+                  .radio.radio-inline
+                    input#item18(type='radio', name='item07', value='totalmente', required='')
+                    label(for='item18') TOTALMENTE
+                  .radio.radio-inline
+                    input#item19(type='radio', name='item07', value='parcialmente', required='')
+                    label(for='item19') PARCIALMENTE
+                  .radio.radio-inline
+                    input#item20(type='radio', name='item07', value='nada', required='')
+                    label(for='item20') NADA
+
+                .form-group
+                  label 08. El trabajo realizado en el aula permite el umplimiento de los resultados de aprendizaje que consta en el sílabo?
+                  .radio.radio-inline
+                    input#item21(type='radio', name='item08', value='totalmente', required='')
+                    label(for='item21') TOTALMENTE
+                  .radio.radio-inline
+                    input#item22(type='radio', name='item08', value='parcialmente', required='')
+                    label(for='item22') PARCIALMENTE
+                  .radio.radio-inline
+                    input#item23(type='radio', name='item08', value='nada', required='')
+                    label(for='item23') NADA
+
+                .form-group
+                  label 09. Se desarrollaron los contenidos de las unidades de la asignatura?
+                  .radio.radio-inline
+                    input#item24(type='radio', name='item09', value='totalmente', required='')
+                    label(for='item24') TOTALMENTE
+                  .radio.radio-inline
+                    input#item25(type='radio', name='item09', value='parcialmente', required='')
+                    label(for='item25') PARCIALMENTE
+                  .radio.radio-inline
+                    input#item26(type='radio', name='item09', value='nada', required='')
+                    label(for='item26') NADA
+
+                .form-group
+                  label 10. Se cumplieron los trabajos autónomos plateados en el sílabo?
+                  .radio.radio-inline
+                    input#item27(type='radio', name='item10', value='totalmente', required='')
+                    label(for='item27') TOTALMENTE
+                  .radio.radio-inline
+                    input#item28(type='radio', name='item10', value='parcialmente', required='')
+                    label(for='item28') PARCIALMENTE
+                  .radio.radio-inline
+                    input#item29(type='radio', name='item10', value='nada', required='')
+                    label(for='item29') NADA
+
+                .form-group
+                  label 11. Se utilizaron las técnicas de evaluación descrita en el sílabo?
+                  .radio.radio-inline
+                    input#item30(type='radio', name='item11', value='si', required='')
+                    label(for='item30') SI
+                  .radio.radio-inline
+                    input#item31(type='radio', name='item11', value='20', required='')
+                    label(for='item31') NO
+
+                .form-group
+                  label 12. Se aplicó la metodología planteada en el sílabo?
+                  .radio.radio-inline
+                    input#item32(type='radio', name='item12', value='si', required='')
+                    label(for='item32') SI
+                  .radio.radio-inline
+                    input#item33(type='radio', name='item12', value='no', required='')
+                    label(for='item33') NO
+
+                .form-group
+                  label 13. Se utlizaron lo recursos programados en el sílabo?
+                  .radio.radio-inline
+                    input#item34(type='radio', name='item13', value='totalmente', required='')
+                    label(for='item34') TOTALMENTE
+                  .radio.radio-inline
+                    input#item35(type='radio', name='item13', value='parcialmente', required='')
+                    label(for='item35') PARCIALMENTE
+                  .radio.radio-inline
+                    input#item36(type='radio', name='item13', value='nada', required='')
+                    label(for='item36') NADA
+
+                .form-group
+                  label 14. Se utilizó la bibliografía que consta en el sílabo?
+                  .radio.radio-inline
+                    input#item37(type='radio', name='item14', value='si', required='')
+                    label(for='item37') SI
+                  .radio.radio-inline
+                    input#item38(type='radio', name='item14', value='no', required='')
+                    label(for='item38') NO
+
+                .form-group
+                  label 15. Se realizó algún reajuste al sílabo?
+                  .radio.radio-inline
+                    input#item39(type='radio', name='item15', value='si', required='')
+                    label(for='item39') SI
+                  .radio.radio-inline
+                    input#item40(type='radio', name='item15', value='no', required='')
+                    label(for='item40') NO
+
+                //.form-group
+                  label Resultado:
+                  span#formResult.form-total
+                    | 
+                    span 0
+              .form-group.form-submit
+                button.btn-submit.btn-lg(type='submit')
+                  span Evaluar

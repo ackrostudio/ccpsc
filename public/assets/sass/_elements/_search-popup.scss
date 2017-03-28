@@ -1,0 +1,65 @@
+/* 6.19 Search Popup
+----------------------------------------------------------*/
+
+#search-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(#fff,0.9);
+    z-index: 700;
+    @include display-flex;
+    @include justify-content(center);
+    @include align-items(center);
+    @include transition(all 0.5s ease-out);
+    visibility: hidden;
+    @include opacity(0);
+
+    &.dark {
+        background-color: rgba(#000,0.8);
+    }
+
+    #search-form {
+        position: relative;
+        width: 760px;
+        @include transition(all 0.5s ease-out);
+        @include translateY(20px);
+        @include box-shadow(none);
+
+        .search-input {
+            font-size: 28px;
+            border: none;
+            width: 100%;
+            padding-right: 90px;
+            border-bottom: 2px solid $color-primary;
+            height: 100px;
+            background: transparent;
+            @include input-placeholder {
+                color: inherit;
+                @include opacity(1);
+                font-style: italic;
+            }
+        }
+
+        .search-submit {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            @include translate3d(0,-50%,0);
+            background: transparent;
+            border: none;
+            font-size: 32px;
+            color: $color-primary;
+        }
+    }
+
+    &.visible {
+        visibility: visible;
+        @include opacity(1);
+
+        #search-form {
+            @include translateY(0);
+        }
+    }
+}

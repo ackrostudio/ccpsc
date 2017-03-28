@@ -1,0 +1,81 @@
+/* ----------------------------------------------------------------------------- */
+/* --- 1. SETUP
+/* ----------------------------------------------------------------------------- */
+
+body { 
+	position: relative;
+	color: $color-text-dark;
+	font-size: 15px;
+	font-family: $font-primary;
+	font-weight: 500;
+	line-height: 1.65;
+	overflow-x: hidden;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	@media #{$screen-sm} {
+		font-size: 14px;
+	}
+}
+
+a {
+	color: inherit;
+	@include transition(all 0.2s ease-in-out);
+}
+
+a:hover, a:focus { text-decoration: none; color: inherit; }
+
+textarea:focus, input:focus, a:focus, a:visited, *:focus { outline: none; }
+
+iframe { border: none; }
+
+img { max-width: 100%; height: auto; -webkit-backface-visibility: hidden;}
+
+body.body-boxed {
+	padding-top: 40px;
+	padding-bottom: 40px;
+
+	@media only screen and (max-width: 1340px) {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	@media #{$screen-md} {
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+
+	#body-wrapper {
+		position: relative;
+		width: 1300px;
+		margin: 0 auto;
+		background-color: $color-white;
+		@include border-radius(5px);
+		@include box-shadow(0 0 60px 0 rgba(#000,0.1));
+
+		@media only screen and (max-width: 1340px) {
+			width: 1190px;
+		}
+
+		@media #{$screen-md} {
+			width: 100%;
+		}
+	}
+
+	#content > *:first-child {
+		@include border-radius(5px 5px 0 0);
+
+	}
+}
+
+body.body-padded {
+	#body-wrapper {
+		position: relative;
+		margin: 0 30px;
+		overflow: hidden;
+
+		@media #{$screen-md} {
+			margin: 0;
+		}
+	}
+}

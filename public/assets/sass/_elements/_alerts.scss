@@ -1,0 +1,38 @@
+/* 6.2 Alerts
+----------------------------------------------------------*/
+
+.alert {
+	position: relative;
+	@include border-radius(0);
+	border: none;
+	color: $color-white;
+	font-family: $font-secondary;
+	padding: 20px;
+
+	.close {
+		position: absolute;
+	    top: 12px;
+	    right: 12px;
+		font-size: 12px;
+		color: $color-white;
+		@include text-shadow(none);
+		@include opacity(0.5);
+
+		&:hover, &:focus {
+			@include opacity(1);
+		}
+	}
+}
+
+.alert-success { 
+	background-color: $color-green;
+}
+.alert-info { 
+	background-color: $color-blue;
+}
+.alert-warning { 
+	background-color: $color-orange;
+}
+.alert-danger { 
+	background-color: $color-red;
+}

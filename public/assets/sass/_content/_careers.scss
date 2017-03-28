@@ -1,0 +1,29 @@
+/* 4.2 Carriers
+----------------------------------------------------------*/
+	
+.career-group {
+	.career-group-title {
+		font-family: $font-secondary;
+		font-size: 12px;
+		font-weight: 600;
+		color: $color-text-muted-dark;
+		padding: 10px 0;
+		margin-bottom: 40px;
+		border-bottom: 2px solid $color-line-dark;
+	}	
+}
+
+.career {
+	margin-bottom: 50px; 
+	font-family: $font-secondary;
+
+	.title {
+		margin-bottom: 5px;
+	}
+	.details {
+		margin-bottom: 0;
+		font-size: 12px;
+	}
+
+	&:last-child { border-bottom: none; }
+}

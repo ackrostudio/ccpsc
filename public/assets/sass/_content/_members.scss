@@ -1,0 +1,32 @@
+/* 4.8 Members
+----------------------------------------------------------*/
+.member {
+	&.member-1 {
+		margin-bottom: 30px;
+
+		img {
+			width: 100%;
+		}
+		.member-content {
+			padding: 30px 25px;
+			text-align: center;
+
+			> *:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+	&.member-2 {
+		overflow: hidden;
+		padding-top: 40px;
+
+		img {
+			@include transition(all 0.9s ease-out);
+			@include translateY(10px);
+		}
+
+		&:hover img {
+			@include translateY(0);
+		}
+	}
+}

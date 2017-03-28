@@ -1,0 +1,75 @@
+if !user
+
+else
+  #page-loader
+    svg.loader-1(width='32px', height='32px', viewbox='0 0 32 32', xmlns='http://www.w3.org/2000/svg')
+      circle.circle-1(fill='none', stroke-width='2', stroke-linecap='round', cx='16', cy='16', r='15')
+      circle.circle-2(fill='none', stroke-width='2', stroke-linecap='round', cx='16', cy='16', r='15')
+  #body-wrapper
+    // Header
+    header#header.fullwidth.light 
+      // Top Bar
+      #top-bar.bg-dark.dark
+        .module.left
+          | Bienvenido: 
+          strong  #{user.usuario}
+        .module.right
+          ul.list-inline
+            li
+              i.i-before.ti-time.text-primary
+              | Lun - Vie 8:00 - 16:00
+            li
+              i.i-before.ti-email.text-primary
+              a(href='#') jmera@uce.edu.ec
+      #nav-bar
+        .row
+          .col-sm-2.col-xs-5
+            nav#main-menu
+              ul#nav-primary.nav.nav-primary
+                a(href='/subjects') EVALUA 2016/2017
+          .menu.col-sm-8.col-xs-1.text-right
+
+            nav#main-menu
+              ul#nav-primary.nav.nav-primary
+                if user.rol == 'admin'
+                  li.has-dropdown
+                    a(href='#') 
+                      i.i-before.ti-settings
+                    ul
+                      li
+                        a(href='/student') Materias
+                      li
+                        a(href='/profile') Profile
+
+                li.has-dropdown
+                  a(href='#') Mi perfil 
+                  ul
+                    li
+                      a(href='/report') Resultados
+                    li
+                      a(href='/profile') Datos personales
+                    li
+                      a(href='#') Cambiar clave
+                    li
+                      a(href='/logout') Cerrar
+                li
+                  a(href='/logout')  Cerrar sesión
+
+          .col-sm-2.col-xs-5
+            .module.right.hidden-lg
+              a#mobile-nav-toggle.nav-toggle(href='#')
+                span
+                  span
+            // Search
+            .module.right
+              a#search-toggle.trigger(href='#')
+                i.ti-search
+                i.ti-close
+  #search-popup.dark
+    form#search-form(action='#')
+      input.search-input(type='text', placeholder='Qué estás buscando?')
+      button.search-submit(type='submit')
+        i.ti-search
+
+
+          

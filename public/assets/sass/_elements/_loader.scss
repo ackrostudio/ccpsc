@@ -1,0 +1,81 @@
+/* 6.11 Loader
+----------------------------------------------------------*/
+
+/* Loader */
+
+#page-loader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 10000;
+	background: $color-white;
+
+	> * {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+	}
+
+	.loader-1 {
+		margin-top: -16px;
+		margin-left: -16px;
+	}
+
+	.loader-2 {
+		@include translate3d(-50%,-50%,0);
+	}
+}
+
+/* Loader #1 */
+
+.loader-1 { 
+	@include animation(loaderRotate 0.7s linear infinite);
+
+	.circle-1 {
+		stroke: $color-grey-3;
+	}
+
+	.circle-2 {
+		stroke-dasharray: 24;
+		stroke: $color-primary;
+	}
+}
+
+@include keyframes(loaderRotate) {
+	0% {
+		@include rotate(0deg);
+	}
+	100% {
+		@include rotate(360deg);
+	}
+}
+
+/* Loader #2 */
+
+.loader-2 {
+	position: relative;
+	width: 64px;
+	height: 3px;
+	background-color: $color-line-dark;
+	display: inline-block;
+	overflow: hidden;
+
+	&:before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: $color-primary;
+		content: ' ';
+		@include animation(loader2 1s linear infinite);
+	}
+}
+
+@include keyframes(loader2) {
+	0% { @include translateX(-100%); }
+	100% { @include translateX(100%); }
+}
+

@@ -1,0 +1,29 @@
+/* 6.18 Progress Bars
+----------------------------------------------------------*/
+
+.progress {
+	@include box-shadow(none);
+	@include border-radius(3px);
+	height: 38px;
+	background-color: $color-grey-2;
+	margin-bottom: 10px;
+	font-weight: 500;
+
+	.progress-bar {
+		line-height: 38px;
+		background-color: $color-primary;
+		text-align: right;
+		padding: 0 15px;
+		font-family: $font-secondary;
+		@include box-shadow(none);
+	}
+
+	&.progress-2 {
+		@include border-radius(20px);
+
+		.progress-bar {
+			@include border-radius(20px);
+			padding: 0 15px;
+		}
+	}
+}

@@ -1,0 +1,114 @@
+/* 6.12 Modals
+----------------------------------------------------------*/
+
+.modal.fade .modal-dialog {
+	@include translate(0,-30px);
+}
+.modal.fade.in .modal-dialog {
+	@include translate(0,0);
+}
+
+.modal-content {
+	@include border-radius(0);
+	@include box-shadow(0px 0px 45px 0px rgba(0,0,0,.1));
+	border: none;
+}
+
+.modal-header {
+	padding: 25px;
+	> .close {
+		margin-top: 7px;
+	}
+}
+
+.modal-dialog, .modal-content {
+	> .close {
+		position: absolute;
+        top: 15px;
+        right: 15px;	
+    }
+}
+
+.modal-body {
+	padding: 25px;
+}
+
+.modal-footer {
+	padding: 25px;
+}
+
+.modal > .close {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    color: $color-white;
+}
+
+.modal-backdrop.in {
+	@include opacity(0.3);
+}
+
+.modal-content.dark {
+	.modal-header, .modal-footer {
+		border-color: $color-line-light;
+	}
+}
+
+/* Modal Bottom */
+
+.modal-bottom {
+	top: auto;
+    overflow: visible !important;
+
+	.modal-dialog {
+		margin: 0;
+		width: auto;
+	}
+
+	.modal-body {
+		padding-right: 40px;
+	}
+
+	&.fade .modal-dialog {
+		@include translate(0,30px);
+	}
+
+	&.fade.in .modal-dialog {
+		@include translate(0,0);
+	}
+}
+
+.modal-at-bottom.modal-open {
+	overflow: auto;
+}
+
+/* Modal Video */
+
+.modal-video {
+    text-align: center;
+
+    @media #{$screen-sm} {
+        text-align: left;
+    }
+
+    iframe {
+        width: 100%;
+        display: block;
+    }
+    &:before {
+        display: inline-block;
+        vertical-align: middle;
+        content: " ";
+        height: 100%;
+
+        @media #{$screen-sm} {
+            display: none;
+        }
+    }
+    .modal-dialog {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+        margin-top: 70px;
+    }
+}

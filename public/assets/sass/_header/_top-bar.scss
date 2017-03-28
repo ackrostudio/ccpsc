@@ -1,0 +1,50 @@
+/* 3.4 Top Bar
+----------------------------------------------------------*/
+
+#top-bar {
+	font-family: $font-secondary;
+	font-size: 12px;
+	height: 40px;
+	overflow: hidden;
+	
+
+	.module {
+		line-height: 40px;
+
+		&.left {
+			float: left;
+		}
+		&.right {
+			float: right;
+		}
+
+		.list-inline {
+			margin-bottom: 0;
+
+			> li {
+				padding-left: 8px;
+				padding-right: 8px;
+
+				i {
+					font-size: 130%;
+					vertical-align: middle;
+					display: inline-block;
+				}
+			}
+		}
+	}
+}
+
+.transparent #top-bar {
+	background-color: transparent;
+	border-color: $color-line-light;
+}
+
+.dark #top-bar {
+	background: $color-dark;
+	border-color: $color-line-light;
+}
+
+body.body-boxed #top-bar {
+	@include border-radius(5px 5px 0 0);
+}

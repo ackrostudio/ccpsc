@@ -1,0 +1,420 @@
+/* 6.13 Navs
+----------------------------------------------------------*/
+
+/* Inline */
+
+.nav-inline {
+	li {
+		display: inline-block;
+		margin-bottom: 0;
+
+		a {
+			font-family: $font-secondary;
+			text-transform: uppercase;
+			padding: 0 9px;
+			@include opacity(0.5);
+			background: none;
+
+			&:hover, &:focus {
+				@include opacity(1);
+				background: none;
+			}
+		}
+	}
+
+	&.nav-sm a { font-size: 11px; }
+}
+
+/* Tabs */
+
+.nav-tabs {
+	border-bottom-color: $color-line-dark;
+	> li {
+		float: left;
+		margin-bottom: 0;
+
+		> a {
+			color: inherit;
+			font-family: $font-secondary;
+			font-size: 12px;
+			font-weight: 600;
+			@include border-radius(3px 3px 0 0);
+			padding: 16px 26px;
+			border: none;
+			background-color: $color-grey;
+
+			&:hover, &:focus {
+				background-color: shade($color-grey,10%);
+			}
+
+			> i {
+				font-size: 200%;
+				color: $color-primary;
+				margin-right: 15px;
+				display: inline-block;
+				vertical-align: middle;
+			}
+		}
+
+		&.active {
+			> a {
+				background-color: $color-primary;
+				pointer-events: none;
+				color: $color-white;
+				border: none;
+
+				> i {
+					color: rgba(#fff,0.5);
+				}
+
+				&:hover, &:focus {
+					background-color: $color-primary;
+					color: $color-white;
+					border: none;
+				}
+			}
+		}
+	}
+
+	&.nav-stacked {
+		border-bottom: none;
+		border-right: 1px solid $color-line-dark;
+
+		> li {
+			float: none;
+			margin: 0 0 2px 0;
+
+			> a {
+				@include border-radius(3px 0 0 3px);
+				display: block;
+				margin-right: 0;
+
+				&:after {
+					width: 2px;
+					height: 100%;
+					top: 0;
+					right: -4px;
+					left: auto;
+					@include scaleY(0);
+				}
+			}
+			&.active {
+				> a {
+					@include border-radius(3px 0 0 3px);
+
+					&:after {
+						@include scaleY(1);
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Pills */
+
+.nav-pills {
+	display: inline-block;
+	background-color: $color-grey;
+	border: none;
+	@include border-radius(50px);
+	white-space: nowrap;
+	overflow: auto;
+	max-width: 100%;
+
+	> li {
+		display: inline-block;
+		float: none;
+		margin: 3px;
+
+		&:not(:first-child) {
+			margin-left: -15px;
+		}
+
+		> a {
+			position: relative;
+			font-family: $font-secondary;
+			font-size: 12px;
+			font-weight: 600;
+			padding: 18px 40px;
+			color: inherit;
+			@include opacity(0.5);
+			border: none;
+			background: transparent;
+
+			> i {
+				font-size: 200%;
+				color: $color-primary;
+				margin-right: 15px;
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+			&:hover, &:focus {
+				@include opacity(1);
+				border: none;
+				background: transparent;
+				color: inherit;
+			}
+		}
+		&.active {
+			a {
+				@include opacity(1);
+				border: none;
+				pointer-events: none;
+				color: inherit;
+				background: $color-white;
+				@include border-radius(50px);
+
+				&:hover, &:focus {
+					color: inherit;
+					background: $color-white;
+				}
+
+				&:after {
+					@include scaleX(1);
+				}
+			}
+		}
+	}
+
+	&.nav-stacked {
+		@include border-radius(3px);
+		display: block;
+		padding: 2px;
+
+		> li {
+			float: none;
+			margin: 0;
+
+			&:not(:first-child) {
+				margin-left: 0;
+			}
+
+			> a {
+				padding: 15px;
+
+				&:after {
+					width: 2px;
+					height: 100%;
+					top: 0;
+					right: -4px;
+					left: auto;
+					@include scaleY(0);
+				}
+			}
+			&.active {
+				> a {
+					@include border-radius(2px);
+
+					&:after {
+						@include scaleY(1);
+					}
+				}
+			}
+		}
+	}
+}
+
+.dark .nav-tabs {
+	border-color: rgba($color-white, 0.2);
+
+	> li > a:after {
+		background: $color-white;
+	}
+}
+
+/* Horizontal */
+
+.nav-horizontal {
+	> li {
+		display: inline-block;
+
+		a {
+			font-family: $font-secondary;
+			font-size: 13px;
+			padding: 10px 15px; 
+			font-weight: 600;
+			@include opacity(0.5);
+
+			&:hover, &:focus {
+				background: transparent;
+				@include opacity(1);
+			}
+		}
+	}
+}
+
+/* Vertical */
+
+.nav-vertical {
+
+	> li {
+
+		&:not(:last-child) {
+			border-bottom: 1px solid $color-line-dark;
+		}
+
+		a {
+			font-family: $font-secondary;
+			font-size: 13px;
+			padding: 0;
+			padding: 13px 0;
+			font-weight: 500;
+
+			> i {
+				@include opacity(0.5);
+				font-size: 110%;
+				margin-right: 10px;
+			}
+
+			&:hover, &:focus {
+				background: transparent;
+				&:after {
+					color: $color-primary;
+					@include opacity(1);
+				}
+			}
+		}
+
+		> a {
+			&:after {
+				position: relative;
+				font-family: 'themify';
+				content: "\e649";
+				float: right;
+				margin-left: 10px;
+				font-size: 90%;
+				display: inline-block;
+				@include opacity(.5);
+				@include transition(all 0.2s ease-out);
+			}
+		}
+
+		ul {
+			display: none;
+			list-style: none;
+			padding: 10px 0 0 20px;
+
+			> li {
+				margin-bottom: 5px;
+
+				a {
+					font-size: 12px;
+					@include opacity(0.5);
+				}
+
+				&.active, &:hover {
+					a {
+						@include opacity(1);
+					}
+				}
+			}
+		}
+
+		&.active {
+			> a:after {
+				@include rotate(90deg);
+			}
+			> ul {
+				display: block;
+			}
+		}
+	}
+}
+
+/* Filter */
+
+.filter-bar {
+	position: relative;
+	overflow: auto;
+	padding: 30px 20px;
+	width: 100%;
+	text-align: center;
+
+	.selector {
+		position: absolute;
+		bottom: 20px;
+		height: 2px;
+		@include border-radius(2px);
+		background: $color-primary;
+		@include transition(all .3s ease-out);
+
+		@media #{$screen-xxs} {
+			display: none;
+		}
+	}
+}
+
+.filter-list > * {
+	@include transition(opacity 0.4s ease-out);
+
+	&.not-matched {
+		@include opacity(0.25);
+		pointer-events: none;
+	}
+}
+
+.dark .filter-bar, .dark.filter-bar {
+	.selector {
+		background: $color-white;
+	}
+}
+
+.nav-filter {
+	border: none;
+	white-space: nowrap;
+	margin-bottom: 0;
+
+	> li {
+		display: inline-block;
+		float: none;
+		margin-right: 26px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		> a {
+			position: relative;
+			font-family: $font-secondary;
+			font-weight: 600;
+			font-size: 13px;
+			padding: 6px 0;
+			@include opacity(0.5);
+			border: none;
+			background: transparent;
+			margin-right: 0;
+
+			&:hover, &:focus {
+				@include opacity(1);
+				border: none;
+				background: transparent;
+				color: inherit;
+			}
+		}
+		&.active > a {
+			@include opacity(1);
+			color: inherit;
+
+			&:hover, &:focus {
+				color: inherit;
+			}
+		}
+	}
+}
+
+/* Nav Icons */
+
+.nav-icons {
+	margin-bottom: 40px;
+	
+	a {
+		margin-right: 15px;
+		@include opacity(0.5);
+
+		&:hover, &:focus {
+			@include opacity(1);
+		}
+	}
+}
